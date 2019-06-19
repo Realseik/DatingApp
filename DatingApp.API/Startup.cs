@@ -87,7 +87,7 @@ namespace DatingApp.API
             }
 
             //app.UseHttpsRedirection();
-            // seeder.SeedUsers(); <----------- Para añadir registros automaticamente a la BD
+            // seeder.SeedUsers();// <----------- Para añadir registros automaticamente a la BD
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();
