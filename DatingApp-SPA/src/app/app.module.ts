@@ -29,6 +29,7 @@ import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsave-changes.guard';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {TimeAgoPipe} from 'time-ago-pipe';
 export function TokenGetter() {
   return localStorage.getItem('token');
 }
@@ -45,7 +46,8 @@ export function TokenGetter() {
     MemberDetailComponent,
     MemberEditComponent,
     MessagesComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
