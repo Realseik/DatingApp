@@ -22,7 +22,7 @@ namespace DatingApp.API.helpers
             {
                 opt.MapFrom(src => src.UserName);
             });
-            
+
             CreateMap<User, UserForDetailedDto>()
             .ForMember(dest => dest.PhotoUrl, opt =>
             {
@@ -37,8 +37,13 @@ namespace DatingApp.API.helpers
                 opt.MapFrom(src => src.UserName);
             });
 
-            CreateMap<Photo, PhotoForDetailedDto>();
             CreateMap<UserForUpdateDto, User>();
+
+            CreateMap<Photo, PhotoForDetailedDto>();
+            //CreateMap<Photo, PhotoForCreationDto>();
+            CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }

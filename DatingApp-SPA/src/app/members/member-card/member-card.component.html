@@ -2,7 +2,8 @@
   <div class="card-img-wrapper">
     <img
       class="card-img-top"
-      src="{{ user.photoUrl }}"
+      src="{{ user.photoUrl}}"
+      onerror="this.src='./../../../assets/user.png'"
       alt="{{ user.knowAs }}"
     />
     <ul class="list-inline member-icons animate text-center">

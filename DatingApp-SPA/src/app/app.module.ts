@@ -6,7 +6,7 @@ import { appRoutes } from './routes';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -18,6 +18,7 @@ import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { ListsComponent } from './lists/lists.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -26,7 +27,8 @@ import { MemberListResolver } from './resolvers/member-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsave-changes.guard';
-
+import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 export function TokenGetter() {
   return localStorage.getItem('token');
 }
@@ -42,13 +44,16 @@ export function TokenGetter() {
     MemberCardComponent,
     MemberDetailComponent,
     MemberEditComponent,
-    MessagesComponent
+    MessagesComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxGalleryModule,
+    FileUploadModule,
     TabsModule.forRoot(),
     JwtModule.forRoot({
       config: {
@@ -58,7 +63,8 @@ export function TokenGetter() {
       }
     }),
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthGuard,
